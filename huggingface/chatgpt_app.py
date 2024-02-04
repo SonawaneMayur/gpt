@@ -4,9 +4,11 @@ from transformers import pipeline
 # Load the text generation pipeline from Hugging Face
 text_generator = pipeline("text-generation", model="gpt2")
 
+
 def generate_text(prompt, max_length=50):
     generated_text = text_generator(prompt, max_length=max_length)[0]["generated_text"]
     return generated_text
+
 
 def main():
     st.title("Hugging Face Transformers Web App")
@@ -21,6 +23,7 @@ def main():
             st.write(generated_text)
         else:
             st.warning("Please enter a prompt.")
+
 
 if __name__ == "__main__":
     main()

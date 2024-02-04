@@ -1,12 +1,12 @@
-import streamlit as st
 import openai
+import streamlit as st
 
 # Set your OpenAI API key here
 openai.api_key = "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"
 
 # Define available engines
 engines = [
-"gpt-3.5-turbo-0613",
+    "gpt-3.5-turbo-0613",
     "text-davinci-003",
     "text-davinci-002",
     "text-davinci-001",
@@ -50,6 +50,7 @@ engines = [
     # Add more engines as needed
 ]
 
+
 def generate_response(prompt, engine):
     response = openai.Completion.create(
         engine=engine,
@@ -58,6 +59,7 @@ def generate_response(prompt, engine):
     )
     return response.choices[0].text
 
+
 def compare_responses(prompt, selected_engine):
     comparisons = []
     for engine in engines:
@@ -65,6 +67,7 @@ def compare_responses(prompt, selected_engine):
             comparison_response = generate_response(prompt, engine)
             comparisons.append((engine, comparison_response))
     return comparisons
+
 
 def main():
     st.title("GPT-3 Comparison Web App")
@@ -101,6 +104,7 @@ def main():
                 st.write(f"**{engine} Output:**")
                 st.write(comparison_response)
                 st.markdown("---")
+
 
 if __name__ == "__main__":
     main()

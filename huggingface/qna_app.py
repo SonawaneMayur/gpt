@@ -4,11 +4,14 @@ from transformers import pipeline
 # get content from - https://www.toppr.com/guides/english-language/reading-comprehension/paragraph-based-questions/#Paragraph_Contents
 
 # Load the question answering pipeline from Hugging Face
-qa_pipeline = pipeline("question-answering", model="distilbert-base-cased-distilled-squad", tokenizer="distilbert-base-cased")
+qa_pipeline = pipeline("question-answering", model="distilbert-base-cased-distilled-squad",
+                       tokenizer="distilbert-base-cased")
+
 
 def answer_question(context, question):
     result = qa_pipeline(context=context, question=question)
     return result['answer']
+
 
 def main():
     st.title("Document Question Answering Web App")
@@ -26,6 +29,7 @@ def main():
             st.write(answer)
         else:
             st.warning("Please provide both document context and question.")
+
 
 if __name__ == "__main__":
     main()
