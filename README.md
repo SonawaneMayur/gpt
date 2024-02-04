@@ -1,6 +1,6 @@
 # QnA EApp
 
-The QnA Explorer App is a POV tool designed for seamless question-answering using state-of-the-art natural language
+The QnA Explorer App is a POV tool designed for seamless question-answering on provided documents using state-of-the-art natural language
 processing models. Leveraging the capabilities of Hugging Face Transformers, OpenAPI, Faiss, and Streamlit, this
 application offers an intuitive platform for users to interact with and explore diverse datasets.
 
